@@ -1,14 +1,32 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Ionic Blank
+    <ion-title style="background-color: #EFB0A1">
+      <br>
+      Contactos
     </ion-title>
+    <ion-buttons end>
+      <br>
+      <button ion-button icon-only (click)="clickAdd()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content padding style="background-color: #EFB0A1">
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let contacto of contactos">
+        <ion-list>
+          <ion-item style="background-color: #C6DEC6">
+            <ion-avatar item-start>
+              <img src={{contacto.avatar}}>
+            </ion-avatar>
+            <h2 (click)="clikContacto(contacto.nombre, contacto.correo, contacto.tel, contacto.facebook, contacto.instagram, contacto.twitter, contacto.avatar)">{{contacto.nombre}}</h2>
+            <p>{{contacto.tel}}</p>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
